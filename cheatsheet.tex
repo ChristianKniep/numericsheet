@@ -136,28 +136,99 @@ $LRx$   & $= b$ \\
 $Lc$    & $= b$ \\
 $Rx$    & $= c$
 \end{tabular}
-\paragraph{Beispiel}Ê\ \\
+\paragraph{2x2 Beispiel}Ê\ \\
+\begin{tabular}{lll}
 $\begin{matrix}
 I \\
 II
-\end{matrix}
-\begin{bmatrix}
+\end{matrix}$ &
+$\begin{bmatrix}
 3 & 2\\
 6 & 6
-\end{bmatrix} \Rightarrow
-\begin{matrix}
+\end{bmatrix}$ &
+$\begin{matrix}
+\\
+II^{'} = II - \frac{6}{3}I = II - 2 I ,l_{21} = 2
+\end{matrix}$ \\
+$\begin{matrix}
 I \\
 II^{'}
-\end{matrix} 
-\begin{bmatrix}
+\end{matrix}$ &
+$\begin{bmatrix}
 3 & 2\\
 0 & 2
-\end{bmatrix} =: R$ \\
-$II^{'} = II - \frac{6}{3}I ,q_1 = 6/3 = 2$ \\
-$L := \begin{bmatrix}
+\end{bmatrix}$ \\
+\end{tabular}
+
+$L =
+\begin{bmatrix}
 1 \\
 2 & 1
+\end{bmatrix}$ \\
+Damit gilt dann:
+$A = LR =
+\begin{bmatrix}
+1 \\
+2 & 1
+\end{bmatrix}
+\begin{bmatrix}
+3 & 2\\
+  & 2
 \end{bmatrix}$ 
+\paragraph{3x3 Beispiel}Ê\ \\
+\begin{tabular}{lll}
+$\begin{matrix}
+I \\
+II \\
+III
+\end{matrix}$ &
+$\begin{bmatrix}
+3 & 2 & 1\\
+6 & 6 & 3\\
+9 & 10 & 6
+\end{bmatrix}$ &
+$\begin{matrix}
+\\
+II^{'} = II - \frac{6}{3} I = II - 2 I, l_{21} = 2 \\
+III^{'} = III - \frac{9}{3} I = III - 3 I, l_{31} = 3 
+\end{matrix}$ \\
+$\begin{matrix}
+I \\
+II^{'} \\
+III^{'}
+\end{matrix}$ &
+$\begin{bmatrix}
+3 & 2 & 1\\
+0 & 2 & 1\\
+0 & 4 & 3
+\end{bmatrix}$ &
+$\begin{matrix}
+\\
+\\
+III^{''} = III^{'} - \frac{4}{2} II^{'}, l_{32}=2
+\end{matrix}$ \\
+$\begin{matrix}
+I \\
+II^{'} \\
+III^{''}
+\end{matrix}$ &
+$\begin{bmatrix}
+3 & 2 & 1\\
+0 & 2 & 1\\
+0 & 0 & 1
+\end{bmatrix}$ 
+\end{tabular}
+$L =\begin{bmatrix}
+1 \\
+2 & 1\\
+3 & 2 & 1
+\end{bmatrix}$,
+$R =\begin{bmatrix}
+3 & 2 & 1\\
+  & 2 & 1\\
+  &   & 1
+\end{bmatrix}$
+
 
 \begin{comment}
 \subsection{LR mit Pivot}
@@ -198,6 +269,9 @@ $p(x) = f_0 L_0(x) + f_1 L_1(x) + ... + f_n L_n(x)$
 \subsection{Lagrange-Polynome}
 $L_i(x) = \displaystyle\sum_{j=0,i\neq j}^n \frac{x - x_j}{x_0 - x_j}$
 
+\section{Nullstellen durch Fixpunktiteration}
+\subsection{MWS}
+$f(b) - f(a) = f^{'}(c)(b - a)$
 
 \rule{0.3\linewidth}{0.25pt}
 \scriptsize
