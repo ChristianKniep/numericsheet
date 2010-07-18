@@ -3,6 +3,7 @@
 \usepackage{calc}
 \usepackage{ifthen}
 \usepackage{amsmath}
+\usepackage{verbatim}
 \usepackage[landscape]{geometry}
 
 % To make this come out properly in landscape mode, do one of the following
@@ -98,8 +99,8 @@
      \Large{\textbf{Numeric Cheat Sheet}} \\
 \end{center}
 
-\section{Cholesky-Zerlegung}
-\subsection{Basics}
+\section{Zerlegung}
+\subsection{Cholesky}
 \begin{tabular}{@{}l}
 Die Cholesky-Zerlegung erstellt eine Matrix $G$ und $G^T$,\\
 so dass folgendes gilt:
@@ -120,12 +121,54 @@ $\begin{bmatrix}
     a_{k1} & \cdots    & a_{kk}
 \end{bmatrix}$
 
-\subsection{Formeln}
+\paragraph{Formeln} \ \\
 \begin{tabular}{@{}l}
 $g_{11} = \sqrt{a_{11}}$ \\
-$g_{kk} = \sqrt{a_{kk} - \sum_{j=1}^{k-1} g_{kj}^2}$ \\
-$g_{ik} = \frac{a_{ik} - \sum_{j=1}^{k-1} g_{ij}g_{kj} }{g_{kk}}$ \\
+$g_{kk} = \sqrt{a_{kk} - \displaystyle\sum_{j=1}^{k-1} g_{kj}^2}$ \\
+$g_{ik} = \frac{a_{ik} - \displaystyle\sum_{j=1}^{k-1} g_{ij}g_{kj} }{g_{kk}}$ \\
 \end{tabular} \\
+
+\subsection{LR ohne Pivot}
+Die LR-Zerlegung ist im Grunde ein Gauss, bei welchem die Umformungen von einer Matrix $A$ nach $R$ in einer Matrix $L$ gespeichert werden.\\
+Anschliessend werden folgende LGS gel\"ost:\\
+\begin{tabular}{@{}ll@{}}
+$LRx$   & $= b$ \\
+$Lc$    & $= b$ \\
+$Rx$    & $= c$
+\end{tabular}
+\paragraph{Beispiel}Ê\ \\
+$\begin{matrix}
+I \\
+II
+\end{matrix}
+\begin{bmatrix}
+3 & 2\\
+6 & 6
+\end{bmatrix} \Rightarrow
+\begin{matrix}
+I \\
+II^{'}
+\end{matrix} 
+\begin{bmatrix}
+3 & 2\\
+0 & 2
+\end{bmatrix} =: R$ \\
+$II^{'} = II - \frac{6}{3}I ,q_1 = 6/3 = 2$ \\
+$L := \begin{bmatrix}
+1 \\
+2 & 1
+\end{bmatrix}$ 
+
+\begin{comment}
+\subsection{LR mit Pivot}
+Wird zus\"atzlich eine Pivotwahl vorgenommen, so wird die Wahl in einer Permutationsmatrix zwischengespeichert.\\
+Dann wird es irgendwie ziemlich h\"asslich, da sowohl $b$ und $x$ auch permutiert werden m\"ussen.\\
+\begin{tabular}{@{}ll@{}}
+$LRx$   & $= b$ \\
+$PLc$    & $= b$ \\
+$Rx$    & $= c$
+\end{tabular}
+\end{comment}
 
 \section{Interpolationspolynomen}
 \subsection{Newton}
@@ -134,7 +177,7 @@ Die Polynome sind die Newton-Polynome $w_i(x)$. \\
 $p(x) = f[x_0] w_0(x) + f[x_0,x_1] w_1(x) + ... + f[x0,...,x_n] w_n(x)$
 \subsubsection{Newton-Polynome}
 Die Newton-Polynome haben alle folgende Form:\\
-$w_i(x) = \sum_{j=0}^{i-1} (x - x_j)$
+$w_i(x) = \displaystyle\sum_{j=0}^{i-1} (x - x_j)$
 \subsubsection{dividierte Differenzen}
 \begin{tabular}{@{}ll@{}}
 $f[x_i]$ & $= f_i$ \\
@@ -149,17 +192,21 @@ $\begin{matrix}
     f_2 := f[x_2] & \rightarrow   & f[x_1,x_2]    & \rightarrow   & f[x_0,...,x_2] 
     
 \end{matrix}$
+\subsection{Lagrange}
+Die Lagrange-Darstellung besteht aus den St\"utzwerten als Koeffizienten und den Lagrange-Polynomen.
+$p(x) = f_0 L_0(x) + f_1 L_1(x) + ... + f_n L_n(x)$
+\subsection{Lagrange-Polynome}
+$L_i(x) = \displaystyle\sum_{j=0,i\neq j}^n \frac{x - x_j}{x_0 - x_j}$
 
 
 \rule{0.3\linewidth}{0.25pt}
 \scriptsize
 
-Copyright \copyright\ 2006 Winston Chang
+Copyright \copyright\ 2010 Christian Kniep \& Co
 
 % Should change this to be date of file, not current date.
-\verb!$Revision: 1.13 $, $Date: 2008/05/29 06:11:56 $.!
+\verb!$Revision: 0.9 $, $Date: 2010/07/18$.!
 
-http://www.stdout.org/$\sim$winston/latex/
 
 
 \end{multicols}
