@@ -272,6 +272,21 @@ $L_i(x) = \displaystyle\sum_{j=0,i\neq j}^n \frac{x - x_j}{x_0 - x_j}$
 \section{Nullstellen durch Fixpunktiteration}
 \subsection{MWS}
 $f(b) - f(a) = f^{'}(c)(b - a)$
+\subsection{Quadraturformel}
+$b_i$ sind die Gewichte und geben in der Summe 0. Ferner sind sie symetrisch, also ist $b_0 = b_n, b_1 = b_{n-1},...$ \\
+Die $c_i$ sind die jeweiligen Knoten der Quadraturformel. (Was auch immer das heisst)
+$\int_a^b f(x)dx \approx (b-a) \displaystyle\sum_{i=1}^s b_i f(a + c_i(b-a))$
+\begin{tabular}{llll}
+Rechteckregel:      & $s=1$ & $b_1 = 1$                                     & $c_1=0$ \\
+Mittelpunktregel:   & $s=1$ & $b_1 = 1$                                     & $c_1=\frac{1}{2}$ \\
+Trapezregel:        & $s=2$ & $b_1 = b_2 = \frac{1}{2}$                     & $c_1=0, c_2=1$ \\
+Simponregel:        & $s=3$ & $b_{1,2} = \frac{1}{6},b_2 = \frac{4}{6}$     & $c_1=0, c_2=\frac{1}{2},c_3=1$ 
+\end{tabular}
+
+\subsection{Kontraktion}
+Wenn es eine Kontraktion ist, so muss folgende Absch\"atzung gelten: \\
+$|f(x) - f(y)| \leq  \lambda |x - y|$
+
 
 \rule{0.3\linewidth}{0.25pt}
 \scriptsize
