@@ -127,7 +127,35 @@ $\begin{bmatrix}
 $g_{11} = \sqrt{a_{11}}$ \\
 $g_{kk} = \sqrt{a_{kk} - \displaystyle\sum_{j=1}^{k-1} g_{kj}^2}$ \\
 $g_{ik} = \frac{a_{ik} - \displaystyle\sum_{j=1}^{k-1} g_{ij}g_{kj} }{g_{kk}}$ \\
-\end{tabular} \\
+\end{tabular}
+\paragraph{Herleitung} \ \\
+\begin{tabular}{l}
+    $\begin{pmatrix}
+        g_{11} \\
+        g_{21}  & g_{22} \\
+        g_{31}  & g_{32} & g_{33} \\        
+    \end{pmatrix}
+    \begin{pmatrix}
+        g_{11}  & g_{21} & g_{31} \\
+                & g_{22} & g_{32} \\
+                &        & g_{33} \\        
+    \end{pmatrix}$ \\
+    \hline
+    $G \cdot G^T$ ist symetrisch: \\
+    $\begin{pmatrix}
+        g_{11}^2 \\
+        g_{11}g_{21}    & g_{21}^2 + g_{22}^2  \\
+        g_{11}g_{31}    & g_{21}g_{31} + g_{22}g_{32}   & g_{31}^2 + g_{32}^2 + g_{33}^2 \\
+    \end{pmatrix}$
+\end{tabular}
+\begin{tabular}{ll}
+    $g_{11}^2$                          & $= a_{11} \Rightarrow g_{11} = \sqrt{a_{11}}$ \\
+    $g_{11}g_{21}$                      & $= a_{21} \Rightarrow g_{21} = \nicefrac{a_{21}}{g_{11}}$ \\
+    $g_{11}g_{31}$                      & $= a_{31} \Rightarrow g_{31} = \nicefrac{a_{31}}{g_{11}}$ \\
+    $g_{22}^2 g_{21}^2$                 & $= a_{22} \Rightarrow g_{22} = \sqrt{a_{22} - g_{21}^2}$ \\
+    $g_{31}g_{21} + g_{32}g_{22}$       & $= a_{32} \Rightarrow g_{32} = \nicefrac{(a_{32} - g_{31}g_{21})}{g_{22}}$ \\    
+    $g_{31}^2 + g_{32}^2 + g_{33}^2$    & $= a_{33} \Rightarrow g_{33} = \sqrt{a_{33} - g_{31}^2 - g_{32}^2}$ \\
+\end{tabular}
 
 \subsection{LR ohne Pivot}
 Die LR-Zerlegung ist im Grunde ein Gauss, bei welchem die Umformungen von einer Matrix $A$ nach $R$ in einer Matrix $L$ gespeichert werden.\\
