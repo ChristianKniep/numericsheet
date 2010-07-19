@@ -270,6 +270,29 @@ $p(x) = f_0 L_0(x) + f_1 L_1(x) + ... + f_n L_n(x)$
 $L_i(x) = \displaystyle\sum_{j=0,i\neq j}^n \frac{x - x_j}{x_0 - x_j}$
 
 \section{Nullstellen durch Fixpunktiteration}
+\subsection{Rekursivit\"at}
+Durch rekursives Ausf\"uhren ergibt sich folgendes:\\
+\begin{tabular}{l}
+$x_0 = x_0$ \\
+$x_1 = f(x_0)$ \\
+$x_2 = f(f(x_0)) = f\circ f(x_0) = f^2(x_0)$ \\
+\vdots \\
+$x_n = \underbrace{ f \circ f \circ f \circ ... \circ f}_{n\text{\ n-mal}}(x_0) = f^n(x_0)$
+\end{tabular}
+\subsection{Iterationsverfahren}
+Um ein Iterationsverfahren durchzuführen, wird $f(x)$ auf null gesetzt und in zwei Funktionen $F_1$ und $F_2$ aufgeteilt:\\
+\begin{tabular}{ll}
+$f(x)$      & $= 2x-e^{-x}$\\
+$0$         & $= 2x-e^{-x}$\\
+$e^{-x}$    & $= 2x$ \\
+$F_1(x)$    & $= \frac{e^{-x}}{2}$ \\
+$F_2(x)$    & $= -ln(2x)$
+\end{tabular}
+\paragraph{Test} \ \\
+Um zu testen, ob alles geklappt hat, werden die Funktionen $F_{1,2}$ in einander eingesetzt. Kommt $x$ heraus, ist alles in Butter.
+\paragraph{Kontraktion} \ \\
+Eine Funktion $f: R^n \rightarrow R^n$ heißt kontrahierend, wenn für alle $x,y \in R^n$ gilt:\\
+$|f(x) - f(y)| \leq c|x - y|, 0<c<1$
 \subsection{MWS}
 $f(b) - f(a) = f^{'}(c)(b - a)$
 \subsection{Quadraturformel}
