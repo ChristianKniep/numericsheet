@@ -149,12 +149,16 @@ $g_{ik} = \frac{a_{ik} - \displaystyle\sum_{j=1}^{k-1} g_{ij}g_{kj} }{g_{kk}}$ \
     \end{pmatrix}$
 \end{tabular}
 \begin{tabular}{ll}
+    \hline
+    \hline
     $g_{11}^2$                          & $= a_{11} \Rightarrow g_{11} = \sqrt{a_{11}}$ \\
+    $g_{22}^2 g_{21}^2$                 & $= a_{22} \Rightarrow g_{22} = \sqrt{a_{22} - g_{21}^2}$ \\
+    $g_{31}^2 + g_{32}^2 + g_{33}^2$    & $= a_{33} \Rightarrow g_{33} = \sqrt{a_{33} - g_{31}^2 - g_{32}^2}$ \\
+    \hline
     $g_{11}g_{21}$                      & $= a_{21} \Rightarrow g_{21} = \nicefrac{a_{21}}{g_{11}}$ \\
     $g_{11}g_{31}$                      & $= a_{31} \Rightarrow g_{31} = \nicefrac{a_{31}}{g_{11}}$ \\
-    $g_{22}^2 g_{21}^2$                 & $= a_{22} \Rightarrow g_{22} = \sqrt{a_{22} - g_{21}^2}$ \\
+    \hline
     $g_{31}g_{21} + g_{32}g_{22}$       & $= a_{32} \Rightarrow g_{32} = \nicefrac{(a_{32} - g_{31}g_{21})}{g_{22}}$ \\    
-    $g_{31}^2 + g_{32}^2 + g_{33}^2$    & $= a_{33} \Rightarrow g_{33} = \sqrt{a_{33} - g_{31}^2 - g_{32}^2}$ \\
 \end{tabular}
 
 \subsection{LR ohne Pivot}
@@ -467,7 +471,7 @@ Die Polynome sind die Newton-Polynome $w_i(x)$. \\
 $p(x) = f[x_0] w_0(x) + f[x_0,x_1] w_1(x) + ... + f[x0,...,x_n] w_n(x)$
 \subsubsection{Newton-Polynome}
 Die Newton-Polynome haben alle folgende Form:\\
-$w_i(x) = \displaystyle\sum_{j=0}^{i-1} (x - x_j)$
+$w_i(x) = \displaystyle\prod{j=0}^{i-1} (x - x_j)$
 \subsubsection{dividierte Differenzen}
 \begin{tabular}{@{}ll@{}}
 $f[x_i]$ & $= f_i$ \\
@@ -481,6 +485,15 @@ $\begin{matrix}
                 & \searrow      &               & \searrow \\
     f_2 := f[x_2] & \rightarrow   & f[x_1,x_2]    & \rightarrow   & f[x_0,...,x_2]
 \end{matrix}$
+\subsubsection{Nullstellen mit Newton}
+hmm
+\subsection{Interpolatino mit Neville-Aitken}
+So wie die Newton-Herleitung nut mit dieser Formel:
+\begin{tabular}{l}
+$p(f|x_i) = f_i$ \\
+$p(f|x_i,..,x_{i+k}) =$ \\
+$\frac{(x-x_i)p(f|x_{i+1},...,x_{i+k})(x) - (x - x_{i+k})p(f|x_i,...,x_{i+k})(x)}{x_{i+k} - x_i}$
+\end{tabular}
 \subsection{Lagrange}
 Die Lagrange-Darstellung besteht aus den St\"utzwerten als Koeffizienten und den Lagrange-Polynomen.
 $p(x) = f_0 L_0(x) + f_1 L_1(x) + ... + f_n L_n(x)$
